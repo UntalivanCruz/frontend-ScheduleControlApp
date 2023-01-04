@@ -9,12 +9,12 @@ import {
     ScheduleOutlined,
     CalendarOutlined,
 } from '@ant-design/icons';
-import { Attendance } from './Attendance';
-import { Department } from './Department';
+import { Attendance } from '../pages/Attendance';
+import { Department } from '../pages/Department';
 import { Layout, Menu, theme } from 'antd';
-import { Employee } from './Employee';
-import { Schedule } from './Schedule';
-import { Workshift } from './Workshift';
+import { Employee } from '../pages/Employee';
+import { Schedule } from '../pages/Schedule';
+import { Workshift } from '../pages/Workshift';
 
 const { Header, Sider, Content } = Layout;
 
