@@ -11,8 +11,8 @@ WORKDIR /app
 #RUN npm run build
 # ==== RUN =======
 # Set the env to "production"
-#ENV NODE_ENV production
+ENV API=${API} WATCHPACK_POLLING=true
 # Expose the port on which the app will be running (3000 is the default that `serve` uses)
-#EXPOSE 3000
+EXPOSE 3000
 # Start the app
 CMD [ "tail","-f","/dev/null" ]
