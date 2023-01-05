@@ -77,7 +77,7 @@ const getQueryString = (params: Record<string, any>): string => {
         return `?${qs.join('&')}`;
     }
 
-    return '';
+    return ''   ;
 };
 
 const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => {
@@ -265,7 +265,7 @@ const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): void =>
     if (!result.ok) {
         throw new ApiError(options, result, 'Generic Error');
     }
-};
+}; 
 
 /**
  * Request method
