@@ -9,12 +9,12 @@ import {
     ScheduleOutlined,
     CalendarOutlined,
 } from '@ant-design/icons';
-import { Attendance } from '../pages/Attendance';
-import { Department } from '../pages/Department';
+import { Attendance } from '../pages/Attendance.page';
+import { Department } from '../pages/Department.page';
 import { Layout, Menu, theme } from 'antd';
-import { Employee } from '../pages/Employee';
-import { Schedule } from '../pages/Schedule';
-import { Workshift } from '../pages/Workshift';
+import { Employee } from '../pages/Employee.page';
+import { Schedule } from '../pages/Schedule.page';
+import { Workshift } from '../pages/Workshift.page';
 
 const { Header, Sider, Content } = Layout;
 
@@ -23,7 +23,6 @@ export const RouterPage: FC = () => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-
     return (
         <Layout style={{ height: '100vh' }}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -32,38 +31,34 @@ export const RouterPage: FC = () => {
                     theme="dark"
                     mode="inline"
                     defaultSelectedKeys={['1']}
-                >
-                    <Menu.Item key='1'
-                        icon={<CheckSquareOutlined />}>
-                        <Link to="/attendance" >
-                            Attendance
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item key='2'
-                        icon={<UserOutlined />}>
-                        <Link to="/employee">
-                            Employee
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item key='3'
-                        icon={<ContactsOutlined />}>
-                        <Link to="/department">
-                            Department
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item key='4'
-                        icon={<ScheduleOutlined />}>
-                        <Link to="/workShift">
-                            WorkShift
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item key='5'
-                        icon={<CalendarOutlined />}>
-                        <Link to="/schedule">
-                            Schedule
-                        </Link>
-                    </Menu.Item>
-                </Menu>
+                    items={[
+                        {
+                          key: '1',
+                          icon: <CheckSquareOutlined />,
+                          label: <Link to="/attendance" >Attendance</Link>,
+                        },
+                        {
+                          key: '2',
+                          icon: <UserOutlined />,
+                          label: <Link to="/employee">Employee</Link>,
+                        },
+                        {
+                          key: '3',
+                          icon: <ContactsOutlined />,
+                          label: <Link to="/department">Department</Link>,
+                        },
+                        {
+                            key: '4',
+                            icon: <ScheduleOutlined />,
+                            label: <Link to="/workshift">WorkShift</Link>,
+                          },
+                          {
+                            key: '5',
+                            icon: <CalendarOutlined />,
+                            label: <Link to="/schedule">Schedule</Link>,
+                          },
+                    ]}
+                />
             </Sider>
             <Layout className="site-layout">
                 <Header style={{ padding: 10, background: colorBgContainer }}>
