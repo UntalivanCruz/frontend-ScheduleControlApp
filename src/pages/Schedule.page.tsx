@@ -61,7 +61,7 @@ useEffect(() => {
 }, []);
   return (
     <>
-      <h1>Deparment</h1>
+      <h1>Schedule</h1>
       <Table columns={columns} dataSource={data} rowKey="id" />
       {error}
     </>

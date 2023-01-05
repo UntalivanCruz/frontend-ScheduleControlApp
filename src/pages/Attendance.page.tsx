@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, message, Space } from 'antd';
+import { Button, Form, Input, message, Space, Divider } from 'antd';
 
 export const Attendance = () => {
   const [form] = Form.useForm();
@@ -19,7 +19,8 @@ export const Attendance = () => {
   };
   return (
     <>
-    <div>Welcome!</div>
+    <h4>Welcome! Register your entry or exit using this form.</h4>
+    <Divider />
     <Form
       form={form}
       layout="vertical"
