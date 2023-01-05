@@ -39,7 +39,7 @@ const columns: ColumnsType<EmployeeWithRelations> = [
     ),
   },
   {
-    title: 'State',
+    title: 'Status',
     dataIndex: 'state',
     key: 'state',
     render: (_, { state }) => (

@@ -11,7 +11,7 @@ const columns: ColumnsType<DepartmentWithRelations> = [
     key: 'name',
   },
   {
-    title: 'State',
+    title: 'Status',
     dataIndex: 'state',
     key: 'state',
     render: (_, { state }) => (
@@ -42,7 +42,7 @@ useEffect(() => {
 
   return (
     <>
-    <h1>Deparment</h1>
+    <h1>Department</h1>
     <Table columns={columns} dataSource={data} rowKey="id"/>
     {error}
     </>

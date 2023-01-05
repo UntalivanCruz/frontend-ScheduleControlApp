@@ -11,7 +11,7 @@ const columns: ColumnsType<WorkshiftWithRelations> = [
     key: 'name',
   },
   {
-    title: 'State',
+    title: 'Status',
     dataIndex: 'state',
     key: 'state',
     render: (_, { state }) => (

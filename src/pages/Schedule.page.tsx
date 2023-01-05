@@ -29,7 +29,7 @@ const columns: ColumnsType<ScheduleWithRelations> = [
     key: 'endTime',
   },
   {
-    title: 'State',
+    title: 'Status',
     dataIndex: 'state',
     key: 'state',
     render: (_, { state }) => (
