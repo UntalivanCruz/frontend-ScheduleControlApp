@@ -16,9 +16,8 @@ export type EmployeeWithRelations = {
     dateBirth?: string;
     gender?: string;
     nationality: string;
-    state?: boolean;
+    status?: boolean;
     idEmployeePositions?: string;
     EmployeePositions?: EmployeePositionsWithRelations;
     attendances?: Array<AttendanceWithRelations>;
 };
-

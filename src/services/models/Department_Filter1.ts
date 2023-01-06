@@ -11,10 +11,9 @@ export type Department_Filter1 = {
     order?: (string | Array<string>);
     where?: any;
     fields?: ({
-        id?: boolean;
-        name?: boolean;
-        state?: boolean;
-    } | Array<'id' | 'name' | 'state'>);
+id?: boolean;
+name?: boolean;
+status?: boolean;
+} | Array<'id' | 'name' | 'status'>);
     include?: Array<(Department_IncludeFilter_Items | string)>;
 };
-

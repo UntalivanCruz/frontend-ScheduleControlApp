@@ -14,13 +14,13 @@ import { request as __request } from '../core/request';
 export class EmployeeControllerService {
 
     /**
-     * @param where
+     * @param where 
      * @returns loopback_Count Employee model count
      * @throws ApiError
      */
     public static employeeControllerCount(
-        where?: any,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/employees/count',
@@ -31,15 +31,15 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static employeeControllerReplaceById(
-        id: string,
-        requestBody?: Employee,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: Employee,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/employees/{id}',
@@ -52,15 +52,15 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static employeeControllerUpdateById(
-        id: string,
-        requestBody?: EmployeePartial,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: EmployeePartial,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/employees/{id}',
@@ -73,15 +73,15 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param filter
+     * @param id 
+     * @param filter 
      * @returns EmployeeWithRelations Employee model instance
      * @throws ApiError
      */
     public static employeeControllerFindById(
-        id: string,
-        filter?: any,
-    ): CancelablePromise<EmployeeWithRelations> {
+id: string,
+filter?: any,
+): CancelablePromise<EmployeeWithRelations> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/employees/{id}',
@@ -95,13 +95,13 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @returns void
+     * @param id 
+     * @returns void 
      * @throws ApiError
      */
     public static employeeControllerDeleteById(
-        id: string,
-    ): CancelablePromise<void> {
+id: string,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/employees/{id}',
@@ -112,13 +112,13 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param requestBody
+     * @param requestBody 
      * @returns Employee Employee model instance
      * @throws ApiError
      */
     public static employeeControllerCreate(
-        requestBody?: NewEmployee,
-    ): CancelablePromise<Employee> {
+requestBody?: NewEmployee,
+): CancelablePromise<Employee> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/employees',
@@ -128,15 +128,15 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param where
-     * @param requestBody
+     * @param where 
+     * @param requestBody 
      * @returns loopback_Count Employee PATCH success count
      * @throws ApiError
      */
     public static employeeControllerUpdateAll(
-        where?: any,
-        requestBody?: EmployeePartial,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+requestBody?: EmployeePartial,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/employees',
@@ -149,13 +149,13 @@ export class EmployeeControllerService {
     }
 
     /**
-     * @param filter
+     * @param filter 
      * @returns EmployeeWithRelations Array of Employee model instances
      * @throws ApiError
      */
     public static employeeControllerFind(
-        filter?: any,
-    ): CancelablePromise<Array<EmployeeWithRelations>> {
+filter?: any,
+): CancelablePromise<Array<EmployeeWithRelations>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/employees',

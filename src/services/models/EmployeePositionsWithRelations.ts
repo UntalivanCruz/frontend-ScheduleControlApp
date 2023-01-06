@@ -12,11 +12,10 @@ import type { WorkshiftWithRelations } from './WorkshiftWithRelations';
 export type EmployeePositionsWithRelations = {
     id?: string;
     name: string;
-    state?: boolean;
+    status?: boolean;
     idDepartment?: string;
     idWorkshift?: string;
     employees?: Array<EmployeeWithRelations>;
     Department?: DepartmentWithRelations;
     workshift?: WorkshiftWithRelations;
 };
-

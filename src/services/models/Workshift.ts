@@ -5,6 +5,5 @@
 export type Workshift = {
     id?: string;
     name: string;
-    state?: boolean;
+    status?: boolean;
 };
-

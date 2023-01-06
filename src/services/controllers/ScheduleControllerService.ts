@@ -14,13 +14,13 @@ import { request as __request } from '../core/request';
 export class ScheduleControllerService {
 
     /**
-     * @param where
+     * @param where 
      * @returns loopback_Count Schedule model count
      * @throws ApiError
      */
     public static scheduleControllerCount(
-        where?: any,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/schedules/count',
@@ -31,15 +31,15 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static scheduleControllerReplaceById(
-        id: string,
-        requestBody?: Schedule,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: Schedule,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/schedules/{id}',
@@ -52,15 +52,15 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static scheduleControllerUpdateById(
-        id: string,
-        requestBody?: SchedulePartial,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: SchedulePartial,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/schedules/{id}',
@@ -73,15 +73,15 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param id
-     * @param filter
+     * @param id 
+     * @param filter 
      * @returns ScheduleWithRelations Schedule model instance
      * @throws ApiError
      */
     public static scheduleControllerFindById(
-        id: string,
-        filter?: any,
-    ): CancelablePromise<ScheduleWithRelations> {
+id: string,
+filter?: any,
+): CancelablePromise<ScheduleWithRelations> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/schedules/{id}',
@@ -95,13 +95,13 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param id
-     * @returns void
+     * @param id 
+     * @returns void 
      * @throws ApiError
      */
     public static scheduleControllerDeleteById(
-        id: string,
-    ): CancelablePromise<void> {
+id: string,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/schedules/{id}',
@@ -112,13 +112,13 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param requestBody
+     * @param requestBody 
      * @returns Schedule Schedule model instance
      * @throws ApiError
      */
     public static scheduleControllerCreate(
-        requestBody?: NewSchedule,
-    ): CancelablePromise<Schedule> {
+requestBody?: NewSchedule,
+): CancelablePromise<Schedule> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/schedules',
@@ -128,15 +128,15 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param where
-     * @param requestBody
+     * @param where 
+     * @param requestBody 
      * @returns loopback_Count Schedule PATCH success count
      * @throws ApiError
      */
     public static scheduleControllerUpdateAll(
-        where?: any,
-        requestBody?: SchedulePartial,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+requestBody?: SchedulePartial,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/schedules',
@@ -149,13 +149,13 @@ export class ScheduleControllerService {
     }
 
     /**
-     * @param filter
+     * @param filter 
      * @returns ScheduleWithRelations Array of Schedule model instances
      * @throws ApiError
      */
     public static scheduleControllerFind(
-        filter?: any,
-    ): CancelablePromise<Array<ScheduleWithRelations>> {
+filter?: any,
+): CancelablePromise<Array<ScheduleWithRelations>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/schedules',

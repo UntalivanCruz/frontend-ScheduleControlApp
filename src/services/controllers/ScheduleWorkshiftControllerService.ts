@@ -10,13 +10,13 @@ import { request as __request } from '../core/request';
 export class ScheduleWorkshiftControllerService {
 
     /**
-     * @param id
+     * @param id 
      * @returns Workshift Workshift belonging to Schedule
      * @throws ApiError
      */
     public static scheduleWorkshiftControllerGetWorkshift(
-        id: string,
-    ): CancelablePromise<Array<Workshift>> {
+id: string,
+): CancelablePromise<Array<Workshift>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/schedules/{id}/workshift',

@@ -7,8 +7,7 @@
  */
 export type NewEmployeePositionsInWorkshift = {
     name: string;
-    state?: boolean;
+    status?: boolean;
     idDepartment?: string;
     idWorkshift?: string;
 };
-

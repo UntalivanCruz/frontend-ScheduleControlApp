@@ -11,4 +11,3 @@ export type Department_ScopeFilter = {
     fields?: Array<string>;
     include?: Array<any>;
 };
-

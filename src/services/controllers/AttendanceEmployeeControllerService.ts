@@ -10,13 +10,13 @@ import { request as __request } from '../core/request';
 export class AttendanceEmployeeControllerService {
 
     /**
-     * @param id
+     * @param id 
      * @returns Employee Employee belonging to Attendance
      * @throws ApiError
      */
     public static attendanceEmployeeControllerGetEmployee(
-        id: string,
-    ): CancelablePromise<Array<Employee>> {
+id: string,
+): CancelablePromise<Array<Employee>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/attendances/{id}/employee',

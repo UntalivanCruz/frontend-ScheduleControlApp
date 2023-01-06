@@ -12,7 +12,6 @@ export type NewEmployee = {
     dateBirth?: string;
     gender?: string;
     nationality: string;
-    state?: boolean;
+    status?: boolean;
     idEmployeePositions?: string;
 };
-

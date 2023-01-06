@@ -13,15 +13,15 @@ import { request as __request } from '../core/request';
 export class WorkshiftEmployeePositionsControllerService {
 
     /**
-     * @param id
-     * @param requestBody
+     * @param id 
+     * @param requestBody 
      * @returns EmployeePositions Workshift model instance
      * @throws ApiError
      */
     public static workshiftEmployeePositionsControllerCreate(
-        id: string,
-        requestBody?: NewEmployeePositionsInWorkshift,
-    ): CancelablePromise<EmployeePositions> {
+id: string,
+requestBody?: NewEmployeePositionsInWorkshift,
+): CancelablePromise<EmployeePositions> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/workshifts/{id}/employee-positions',
@@ -34,17 +34,17 @@ export class WorkshiftEmployeePositionsControllerService {
     }
 
     /**
-     * @param id
-     * @param where
-     * @param requestBody
+     * @param id 
+     * @param where 
+     * @param requestBody 
      * @returns loopback_Count Workshift.EmployeePositions PATCH success count
      * @throws ApiError
      */
     public static workshiftEmployeePositionsControllerPatch(
-        id: string,
-        where?: any,
-        requestBody?: EmployeePositionsPartial,
-    ): CancelablePromise<loopback_Count> {
+id: string,
+where?: any,
+requestBody?: EmployeePositionsPartial,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/workshifts/{id}/employee-positions',
@@ -60,15 +60,15 @@ export class WorkshiftEmployeePositionsControllerService {
     }
 
     /**
-     * @param id
-     * @param filter
+     * @param id 
+     * @param filter 
      * @returns EmployeePositions Array of Workshift has many EmployeePositions
      * @throws ApiError
      */
     public static workshiftEmployeePositionsControllerFind(
-        id: string,
-        filter?: any,
-    ): CancelablePromise<Array<EmployeePositions>> {
+id: string,
+filter?: any,
+): CancelablePromise<Array<EmployeePositions>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/workshifts/{id}/employee-positions',
@@ -82,15 +82,15 @@ export class WorkshiftEmployeePositionsControllerService {
     }
 
     /**
-     * @param id
-     * @param where
+     * @param id 
+     * @param where 
      * @returns loopback_Count Workshift.EmployeePositions DELETE success count
      * @throws ApiError
      */
     public static workshiftEmployeePositionsControllerDelete(
-        id: string,
-        where?: any,
-    ): CancelablePromise<loopback_Count> {
+id: string,
+where?: any,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/workshifts/{id}/employee-positions',

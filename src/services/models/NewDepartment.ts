@@ -7,6 +7,5 @@
  */
 export type NewDepartment = {
     name: string;
-    state?: boolean;
+    status?: boolean;
 };
-

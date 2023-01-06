@@ -13,15 +13,15 @@ import { request as __request } from '../core/request';
 export class EmployeePositionsEmployeeControllerService {
 
     /**
-     * @param id
-     * @param requestBody
+     * @param id 
+     * @param requestBody 
      * @returns Employee EmployeePositions model instance
      * @throws ApiError
      */
     public static employeePositionsEmployeeControllerCreate(
-        id: string,
-        requestBody?: NewEmployeeInEmployeePositions,
-    ): CancelablePromise<Employee> {
+id: string,
+requestBody?: NewEmployeeInEmployeePositions,
+): CancelablePromise<Employee> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/employee-positions/{id}/employees',
@@ -34,17 +34,17 @@ export class EmployeePositionsEmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param where
-     * @param requestBody
+     * @param id 
+     * @param where 
+     * @param requestBody 
      * @returns loopback_Count EmployeePositions.Employee PATCH success count
      * @throws ApiError
      */
     public static employeePositionsEmployeeControllerPatch(
-        id: string,
-        where?: any,
-        requestBody?: EmployeePartial,
-    ): CancelablePromise<loopback_Count> {
+id: string,
+where?: any,
+requestBody?: EmployeePartial,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/employee-positions/{id}/employees',
@@ -60,15 +60,15 @@ export class EmployeePositionsEmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param filter
+     * @param id 
+     * @param filter 
      * @returns Employee Array of EmployeePositions has many Employee
      * @throws ApiError
      */
     public static employeePositionsEmployeeControllerFind(
-        id: string,
-        filter?: any,
-    ): CancelablePromise<Array<Employee>> {
+id: string,
+filter?: any,
+): CancelablePromise<Array<Employee>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/employee-positions/{id}/employees',
@@ -82,15 +82,15 @@ export class EmployeePositionsEmployeeControllerService {
     }
 
     /**
-     * @param id
-     * @param where
+     * @param id 
+     * @param where 
      * @returns loopback_Count EmployeePositions.Employee DELETE success count
      * @throws ApiError
      */
     public static employeePositionsEmployeeControllerDelete(
-        id: string,
-        where?: any,
-    ): CancelablePromise<loopback_Count> {
+id: string,
+where?: any,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/employee-positions/{id}/employees',

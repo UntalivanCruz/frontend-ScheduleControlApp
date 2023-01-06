@@ -10,10 +10,9 @@ export type Department_Filter = {
     skip?: number;
     order?: (string | Array<string>);
     fields?: ({
-        id?: boolean;
-        name?: boolean;
-        state?: boolean;
-    } | Array<'id' | 'name' | 'state'>);
+id?: boolean;
+name?: boolean;
+status?: boolean;
+} | Array<'id' | 'name' | 'status'>);
     include?: Array<(Department_IncludeFilter_Items | string)>;
 };
-

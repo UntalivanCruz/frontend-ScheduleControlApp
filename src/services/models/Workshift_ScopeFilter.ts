@@ -11,4 +11,3 @@ export type Workshift_ScopeFilter = {
     fields?: Array<string>;
     include?: Array<any>;
 };
-

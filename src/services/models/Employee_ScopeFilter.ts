@@ -11,4 +11,3 @@ export type Employee_ScopeFilter = {
     fields?: Array<string>;
     include?: Array<any>;
 };
-

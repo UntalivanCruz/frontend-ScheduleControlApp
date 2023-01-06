@@ -14,13 +14,13 @@ import { request as __request } from '../core/request';
 export class AttendanceControllerService {
 
     /**
-     * @param where
+     * @param where 
      * @returns loopback_Count Attendance model count
      * @throws ApiError
      */
     public static attendanceControllerCount(
-        where?: any,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/attendances/count',
@@ -31,15 +31,15 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static attendanceControllerReplaceById(
-        id: string,
-        requestBody?: Attendance,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: Attendance,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/attendances/{id}',
@@ -52,15 +52,15 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param id
-     * @param requestBody
-     * @returns void
+     * @param id 
+     * @param requestBody 
+     * @returns void 
      * @throws ApiError
      */
     public static attendanceControllerUpdateById(
-        id: string,
-        requestBody?: AttendancePartial,
-    ): CancelablePromise<void> {
+id: string,
+requestBody?: AttendancePartial,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/attendances/{id}',
@@ -73,15 +73,15 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param id
-     * @param filter
+     * @param id 
+     * @param filter 
      * @returns AttendanceWithRelations Attendance model instance
      * @throws ApiError
      */
     public static attendanceControllerFindById(
-        id: string,
-        filter?: any,
-    ): CancelablePromise<AttendanceWithRelations> {
+id: string,
+filter?: any,
+): CancelablePromise<AttendanceWithRelations> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/attendances/{id}',
@@ -95,13 +95,13 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param id
-     * @returns void
+     * @param id 
+     * @returns void 
      * @throws ApiError
      */
     public static attendanceControllerDeleteById(
-        id: string,
-    ): CancelablePromise<void> {
+id: string,
+): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/attendances/{id}',
@@ -112,13 +112,13 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param requestBody
+     * @param requestBody 
      * @returns Attendance Attendance model instance
      * @throws ApiError
      */
     public static attendanceControllerCreate(
-        requestBody?: NewAttendance,
-    ): CancelablePromise<Attendance> {
+requestBody?: NewAttendance,
+): CancelablePromise<Attendance> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/attendances',
@@ -128,15 +128,15 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param where
-     * @param requestBody
+     * @param where 
+     * @param requestBody 
      * @returns loopback_Count Attendance PATCH success count
      * @throws ApiError
      */
     public static attendanceControllerUpdateAll(
-        where?: any,
-        requestBody?: AttendancePartial,
-    ): CancelablePromise<loopback_Count> {
+where?: any,
+requestBody?: AttendancePartial,
+): CancelablePromise<loopback_Count> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/attendances',
@@ -149,13 +149,13 @@ export class AttendanceControllerService {
     }
 
     /**
-     * @param filter
+     * @param filter 
      * @returns AttendanceWithRelations Array of Attendance model instances
      * @throws ApiError
      */
     public static attendanceControllerFind(
-        filter?: any,
-    ): CancelablePromise<Array<AttendanceWithRelations>> {
+filter?: any,
+): CancelablePromise<Array<AttendanceWithRelations>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/attendances',

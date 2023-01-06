@@ -11,8 +11,7 @@ import type { ScheduleWithRelations } from './ScheduleWithRelations';
 export type WorkshiftWithRelations = {
     id?: string;
     name: string;
-    state?: boolean;
+    status?: boolean;
     employeePositions?: Array<EmployeePositionsWithRelations>;
     schedules?: Array<ScheduleWithRelations>;
 };
-

@@ -10,16 +10,15 @@ export type Employee_Filter = {
     skip?: number;
     order?: (string | Array<string>);
     fields?: ({
-        id?: boolean;
-        firstName?: boolean;
-        lastName?: boolean;
-        identification?: boolean;
-        dateBirth?: boolean;
-        gender?: boolean;
-        nationality?: boolean;
-        state?: boolean;
-        idEmployeePositions?: boolean;
-    } | Array<'id' | 'firstName' | 'lastName' | 'identification' | 'dateBirth' | 'gender' | 'nationality' | 'state' | 'idEmployeePositions'>);
+id?: boolean;
+firstName?: boolean;
+lastName?: boolean;
+identification?: boolean;
+dateBirth?: boolean;
+gender?: boolean;
+nationality?: boolean;
+status?: boolean;
+idEmployeePositions?: boolean;
+} | Array<'id' | 'firstName' | 'lastName' | 'identification' | 'dateBirth' | 'gender' | 'nationality' | 'status' | 'idEmployeePositions'>);
     include?: Array<(Employee_IncludeFilter_Items | string)>;
 };
-

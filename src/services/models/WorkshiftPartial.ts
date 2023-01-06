@@ -8,6 +8,5 @@
 export type WorkshiftPartial = {
     id?: string;
     name?: string;
-    state?: boolean;
+    status?: boolean;
 };
-

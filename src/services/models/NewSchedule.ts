@@ -9,7 +9,6 @@ export type NewSchedule = {
     day: number;
     startTime?: string;
     endTime?: string;
-    state?: boolean;
+    status?: boolean;
     idWorkshift?: string;
 };
-

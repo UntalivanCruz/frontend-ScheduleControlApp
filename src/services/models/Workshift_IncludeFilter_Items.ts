@@ -18,4 +18,3 @@ export namespace Workshift_IncludeFilter_Items {
 
 
 }
-

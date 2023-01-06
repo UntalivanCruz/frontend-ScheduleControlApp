@@ -10,7 +10,6 @@ export type SchedulePartial = {
     day?: number;
     startTime?: string;
     endTime?: string;
-    state?: boolean;
+    status?: boolean;
     idWorkshift?: string;
 };
-

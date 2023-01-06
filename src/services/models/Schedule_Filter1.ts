@@ -11,13 +11,12 @@ export type Schedule_Filter1 = {
     order?: (string | Array<string>);
     where?: any;
     fields?: ({
-        id?: boolean;
-        day?: boolean;
-        startTime?: boolean;
-        endTime?: boolean;
-        state?: boolean;
-        idWorkshift?: boolean;
-    } | Array<'id' | 'day' | 'startTime' | 'endTime' | 'state' | 'idWorkshift'>);
+id?: boolean;
+day?: boolean;
+startTime?: boolean;
+endTime?: boolean;
+status?: boolean;
+idWorkshift?: boolean;
+} | Array<'id' | 'day' | 'startTime' | 'endTime' | 'status' | 'idWorkshift'>);
     include?: Array<(Schedule_IncludeFilter_Items | string)>;
 };
-

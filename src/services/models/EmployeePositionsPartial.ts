@@ -8,8 +8,7 @@
 export type EmployeePositionsPartial = {
     id?: string;
     name?: string;
-    state?: boolean;
+    status?: boolean;
     idDepartment?: string;
     idWorkshift?: string;
 };
-

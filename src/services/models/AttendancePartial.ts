@@ -11,7 +11,6 @@ export type AttendancePartial = {
     day?: number;
     startTime?: string;
     endTime?: string;
-    state?: boolean;
+    status?: boolean;
     idEmployee?: string;
 };
-

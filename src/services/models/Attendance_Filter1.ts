@@ -11,14 +11,13 @@ export type Attendance_Filter1 = {
     order?: (string | Array<string>);
     where?: any;
     fields?: ({
-        id?: boolean;
-        date?: boolean;
-        day?: boolean;
-        startTime?: boolean;
-        endTime?: boolean;
-        state?: boolean;
-        idEmployee?: boolean;
-    } | Array<'id' | 'date' | 'day' | 'startTime' | 'endTime' | 'state' | 'idEmployee'>);
+id?: boolean;
+date?: boolean;
+day?: boolean;
+startTime?: boolean;
+endTime?: boolean;
+status?: boolean;
+idEmployee?: boolean;
+} | Array<'id' | 'date' | 'day' | 'startTime' | 'endTime' | 'status' | 'idEmployee'>);
     include?: Array<(Attendance_IncludeFilter_Items | string)>;
 };
-

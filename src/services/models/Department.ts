@@ -5,6 +5,5 @@
 export type Department = {
     id?: string;
     name: string;
-    state?: boolean;
+    status?: boolean;
 };
-

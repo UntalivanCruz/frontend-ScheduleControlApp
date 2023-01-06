@@ -11,12 +11,11 @@ export type EmployeePositions_Filter1 = {
     order?: (string | Array<string>);
     where?: any;
     fields?: ({
-        id?: boolean;
-        name?: boolean;
-        state?: boolean;
-        idDepartment?: boolean;
-        idWorkshift?: boolean;
-    } | Array<'id' | 'name' | 'state' | 'idDepartment' | 'idWorkshift'>);
+id?: boolean;
+name?: boolean;
+status?: boolean;
+idDepartment?: boolean;
+idWorkshift?: boolean;
+} | Array<'id' | 'name' | 'status' | 'idDepartment' | 'idWorkshift'>);
     include?: Array<(EmployeePositions_IncludeFilter_Items | string)>;
 };
-

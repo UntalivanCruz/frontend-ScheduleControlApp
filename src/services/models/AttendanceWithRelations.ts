@@ -13,8 +13,7 @@ export type AttendanceWithRelations = {
     day: number;
     startTime?: string;
     endTime?: string;
-    state?: boolean;
+    status?: boolean;
     idEmployee?: string;
     Employee?: EmployeeWithRelations;
 };
-

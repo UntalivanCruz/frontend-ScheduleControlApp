@@ -8,6 +8,5 @@
 export type DepartmentPartial = {
     id?: string;
     name?: string;
-    state?: boolean;
+    status?: boolean;
 };
-

@@ -40,10 +40,10 @@ const columns: ColumnsType<EmployeeWithRelations> = [
   },
   {
     title: 'Status',
-    dataIndex: 'state',
-    key: 'state',
-    render: (_, { state }) => (
-      <Switch checkedChildren="Enabled" unCheckedChildren="Disabled" defaultChecked checked={state} />
+    dataIndex: 'status',
+    key: 'status',
+    render: (_, { status }) => (
+      <Switch checkedChildren="Enabled" unCheckedChildren="Disabled" defaultChecked checked={status} />
     ),
   },
   {

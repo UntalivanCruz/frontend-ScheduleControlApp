@@ -10,7 +10,6 @@ import type { EmployeePositionsWithRelations } from './EmployeePositionsWithRela
 export type DepartmentWithRelations = {
     id?: string;
     name: string;
-    state?: boolean;
+    status?: boolean;
     employeePositions?: Array<EmployeePositionsWithRelations>;
 };
-

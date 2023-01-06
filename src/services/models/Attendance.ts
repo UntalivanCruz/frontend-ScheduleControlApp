@@ -8,7 +8,6 @@ export type Attendance = {
     day: number;
     startTime?: string;
     endTime?: string;
-    state?: boolean;
+    status?: boolean;
     idEmployee?: string;
 };
-

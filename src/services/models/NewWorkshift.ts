@@ -7,6 +7,5 @@
  */
 export type NewWorkshift = {
     name: string;
-    state?: boolean;
+    status?: boolean;
 };
-
