@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message, Button } from 'antd';
-import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined, FileAddOutlined } from '@ant-design/icons';
 import { ApiError, WorkshiftWithRelations, WorkshiftControllerService } from '../services/index'
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
@@ -194,9 +194,8 @@ export const Workshift = () => {
   return (
     <>
       <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
-        Add a new record
+        <FileAddOutlined />Create new
       </Button>
-
       <Form
         form={form}
         component={false}
@@ -215,7 +214,7 @@ export const Workshift = () => {
             onChange: cancel,
           }}
           title={() => <h2 style={{ textAlign: 'center' }}>Workshift</h2>}
-          footer={() => `Total records in the table: ${data.length}`}
+          footer={() => <Typography.Text>Total records in the table: {data.length}</Typography.Text>}
         />
       </Form>
       {error}
