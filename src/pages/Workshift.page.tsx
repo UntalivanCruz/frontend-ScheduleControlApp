@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message } from 'antd';
+import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message, Button } from 'antd';
 import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
 import { ApiError, WorkshiftWithRelations, WorkshiftControllerService } from '../services/index'
 
@@ -7,7 +7,7 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
   dataIndex: string;
   title: any;
-  inputType: 'text' | 'number' |'boolean';
+  inputType: 'text' | 'number' | 'boolean';
   record: WorkshiftWithRelations;
   index: number;
   children: React.ReactNode;
@@ -65,13 +65,13 @@ export const Workshift = () => {
     WorkshiftControllerService.workshiftControllerUpdateById(id, { status: false })
       .then(() => {
         message.success('Delete success!');
-      setData(data.map(x=>{
-          if(x.id === id){
-            return {...x,status:false}
-          }else{
+        setData(data.map(x => {
+          if (x.id === id) {
+            return { ...x, status: false }
+          } else {
             return x
           }
-      }))
+        }))
       })
       .catch((error) => {
         message.error('Delete failed!');
@@ -91,12 +91,12 @@ export const Workshift = () => {
       const index = newData.findIndex((item) => id === item.id);
       if (index > -1) {
         const item = newData[index];
-        WorkshiftControllerService.workshiftControllerUpdateById(String(item.id),row)
-        .then(()=>message.success('Update success!'))
-        .catch((error) => {
-          message.error('Update failed!');
-          setError(error)
-        });
+        WorkshiftControllerService.workshiftControllerUpdateById(String(item.id), row)
+          .then(() => message.success('Update success!'))
+          .catch((error) => {
+            message.error('Update failed!');
+            setError(error)
+          });
         newData.splice(index, 1, {
           ...item,
           ...row,
@@ -104,7 +104,6 @@ export const Workshift = () => {
         setData(newData);
         setIdEditing('');
       } else {
-        console.log("no se cuando pasa esto",row)
         newData.push(row);
         setData(newData);
         setIdEditing('');
@@ -137,7 +136,7 @@ export const Workshift = () => {
         return editable ? (
           <span>
             <Popconfirm title="Sure to save?" onConfirm={() => save(record.id)}>
-              <SaveOutlined style={{ color: 'green',marginRight: 8 }}/>
+              <SaveOutlined style={{ color: 'green', marginRight: 8 }} />
             </Popconfirm>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel} >
               <StopOutlined style={{ color: 'red' }} />
@@ -151,7 +150,7 @@ export const Workshift = () => {
             <Popconfirm disabled={idEditing !== ''} title="Sure to delete?" onConfirm={() => deleteRow(record.id)} >
               <Typography.Link disabled={idEditing !== ''} type="danger"><DeleteOutlined disabled={idEditing !== ''} style={{ color: 'red' }} /> Delete</Typography.Link>
             </Popconfirm>
-          </> 
+          </>
         );
       },
     },
@@ -180,9 +179,24 @@ export const Workshift = () => {
     };
   });
 
+  const handleAdd = () => {
+    WorkshiftControllerService.workshiftControllerCreate({ name: 'input the new workshift' })
+      .then((newData) => {
+        message.success('Create success!')
+        setData([...data, newData]);
+      })
+      .catch((error) => {
+        message.error('Create failed!');
+        setError(error)
+      });
+  };
+
   return (
     <>
-      <h1>Workshift</h1>
+      <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        Add a new record
+      </Button>
+
       <Form
         form={form}
         component={false}
@@ -200,6 +214,8 @@ export const Workshift = () => {
           pagination={{
             onChange: cancel,
           }}
+          title={() => <h2 style={{ textAlign: 'center' }}>Workshift</h2>}
+          footer={() => `Total records in the table: ${data.length}`}
         />
       </Form>
       {error}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message } from 'antd';
+import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message, Button } from 'antd';
 import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
 import { ApiError, DepartmentWithRelations, DepartmentControllerService } from '../services/index'
 
@@ -179,9 +179,23 @@ export const Department = () => {
     };
   });
 
+  const handleAdd = () => {
+    DepartmentControllerService.departmentControllerCreate({name: 'input the new department'})
+    .then((newData)=>{
+      message.success('Create success!')
+      setData([...data, newData]);
+    })
+    .catch((error) => {
+      message.error('Create failed!');
+      setError(error)
+    });
+  };
+
   return (
     <>
-      <h1>Department</h1>
+      <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        Add a new record
+      </Button>
       <Form
         form={form}
         component={false}
@@ -199,6 +213,8 @@ export const Department = () => {
           pagination={{
             onChange: cancel,
           }}
+          title={() => <h2 style={{ textAlign: 'center' }}>Deparment</h2>}
+          footer={() => `Total records in the table: ${data.length}`}
         />
       </Form>
       {error}
