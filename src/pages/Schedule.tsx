@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message } from 'antd';
 import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
-import { ApiError, ScheduleWithRelations, ScheduleControllerService } from '../services/index'
+import { ApiError, ScheduleWithRelations, ScheduleControllerService } from '../services'
 import { weekday } from '../constants/weekDay';
 import { TimeFormat } from '../utils/TimeFormat';
+import { ScheduleForm } from '../components';
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
@@ -241,6 +242,7 @@ export const Schedule = () => {
         />
       </Form>
       {error}
+      <ScheduleForm />
     </>
   )
 }

@@ -58,7 +58,10 @@ export const Attendance = () => {
           <SearchEmployee newData={handleData} />
         </Col>
       </Row>
-      <br />
+      <Divider />
+      <Row>
+        <Col span={24}><h4>Today's attendance record history</h4></Col>
+      </Row>
       <Row>
         {data.map((item: any) => (
           <Col span={6}>
