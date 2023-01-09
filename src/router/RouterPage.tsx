@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link, Route, Routes } from "react-router-dom";
+import { Layout, Menu, theme } from 'antd';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -9,12 +10,7 @@ import {
     ScheduleOutlined,
     CalendarOutlined,
 } from '@ant-design/icons';
-import { Attendance } from '../pages/Attendance.page';
-import { Department } from '../pages/Department.page';
-import { Layout, Menu, theme } from 'antd';
-import { Employee } from '../pages/Employee.page';
-import { Schedule } from '../pages/Schedule.page';
-import { Workshift } from '../pages/Workshift.page';
+import { Attendance, Department, Employee, Schedule, Workshift } from '../pages';
 
 const { Header, Sider, Content } = Layout;
 

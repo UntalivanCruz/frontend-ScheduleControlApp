@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message } from 'antd';
-import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
-import { ApiError, ScheduleWithRelations, ScheduleControllerService } from '../services/index'
-import { weekday } from '../constants/weekDay';
-import dayjs from 'dayjs';
+import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message, Button } from 'antd';
+import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined, FileAddOutlined } from '@ant-design/icons';
+import { ApiError, WorkshiftWithRelations, WorkshiftControllerService } from '../services/index'
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
   dataIndex: string;
   title: any;
-  inputType: 'text' | 'number' | 'boolean' | 'date' | 'time' | 'list';
-  record: ScheduleWithRelations;
+  inputType: 'text' | 'number' | 'boolean';
+  record: WorkshiftWithRelations;
   index: number;
   children: React.ReactNode;
 }
@@ -49,23 +47,21 @@ const EditableCell: React.FC<EditableCellProps> = ({
   );
 };
 
-
-
-export const Schedule = () => {
+export const WorkshiftTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState<ScheduleWithRelations[]>([]);
+  const [data, setData] = useState<WorkshiftWithRelations[]>([]);
   const [error, setError] = useState<ApiError | null>();
   const [idEditing, setIdEditing] = useState<String | undefined>('');
 
-  const isEditing = (record: ScheduleWithRelations) => record.id === idEditing;
+  const isEditing = (record: WorkshiftWithRelations) => record.id === idEditing;
 
   const edit = (record: any) => {
-    form.setFieldsValue({ idWorkshift: '', day: '', startTime: '', endTime: '', ...record });
+    form.setFieldsValue({ name: '', ...record });
     setIdEditing(record.id);
   };
 
   const deleteRow = (id: any) => {
-    ScheduleControllerService.scheduleControllerUpdateById(id, { status: false })
+    WorkshiftControllerService.workshiftControllerUpdateById(id, { status: false })
       .then(() => {
         message.success('Delete success!');
         setData(data.map(x => {
@@ -86,28 +82,26 @@ export const Schedule = () => {
     setIdEditing('');
   };
 
-
   const save = async (id: String | undefined) => {
     try {
-      const row = (await form.validateFields()) as ScheduleWithRelations;
+      const row = (await form.validateFields()) as WorkshiftWithRelations;
 
       const newData = [...data];
       const index = newData.findIndex((item) => id === item.id);
       if (index > -1) {
         const item = newData[index];
+        WorkshiftControllerService.workshiftControllerUpdateById(String(item.id), row)
+          .then(() => message.success('Update success!'))
+          .catch((error) => {
+            message.error('Update failed!');
+            setError(error)
+          });
         newData.splice(index, 1, {
           ...item,
           ...row,
         });
         setData(newData);
         setIdEditing('');
-        delete row['workshift']
-        ScheduleControllerService.scheduleControllerUpdateById(String(item.id), row)
-          .then(() => message.success('Update success!'))
-          .catch((error) => {
-            message.error('Update failed!');
-            setError(error)
-          });
       } else {
         newData.push(row);
         setData(newData);
@@ -118,56 +112,25 @@ export const Schedule = () => {
     }
   };
 
-
   const columns = [
     {
-      title: 'Workshift',
-      dataIndex: 'workshift',
-      editable: false,
-      inputType: 'text',
-      render: (_: any, record: ScheduleWithRelations) => (
-        <>{record.workshift?.name}</>
-      ),
-    },
-    {
-      title: 'Day',
-      dataIndex: 'day',
+      title: 'Name',
+      dataIndex: 'name',
       editable: true,
       inputType: 'text',
-      render: (_: any, record: ScheduleWithRelations) => (
-        <>{weekday[record.day]}</>
-      ),
-    },
-    {
-      title: 'StartTime',
-      dataIndex: 'startTime',
-      editable: true,
-      inputType: 'text',
-      render: (_: any, record: ScheduleWithRelations) => (
-        <>{dayjs(record.startTime, 'HH:mm:ss').format('hh:mm A')}</>
-      ),
-    },
-    {
-      title: 'EndTime',
-      dataIndex: 'endTime',
-      editable: true,
-      inputType: 'text',
-      render: (_: any, record: ScheduleWithRelations) => (
-        <>{dayjs(record.endTime, 'HH:mm:ss').format('hh:mm A')}</>
-      ),
     },
     {
       title: 'Status',
       dataIndex: 'status',
       inputType: 'boolean',
-      render: (_: any, record: ScheduleWithRelations) => (
+      render: (_: any, record: WorkshiftWithRelations) => (
         <Switch checkedChildren="Enabled" unCheckedChildren="Disabled" disabled={true} defaultChecked checked={record.status} />
       ),
     },
     {
       title: 'Operation',
       dataIndex: 'operation',
-      render: (_: any, record: ScheduleWithRelations) => {
+      render: (_: any, record: WorkshiftWithRelations) => {
         const editable = isEditing(record);
         return editable ? (
           <span>
@@ -192,14 +155,12 @@ export const Schedule = () => {
     },
   ];
 
+
   useEffect(() => {
-    ScheduleControllerService.scheduleControllerFind(
-      '{"include":[{"relation":"workshift"}]}'
-    )
+    WorkshiftControllerService.workshiftControllerFind()
       .then((originData) => setData(originData))
       .catch((error) => setError(error));
   }, []);
-
 
   const mergedColumns = columns.map((col: any) => {
     if (!col.editable) {
@@ -207,7 +168,7 @@ export const Schedule = () => {
     }
     return {
       ...col,
-      onCell: (record: ScheduleWithRelations) => ({
+      onCell: (record: WorkshiftWithRelations) => ({
         record,
         inputType: col.inputType,
         dataIndex: col.dataIndex,
@@ -217,9 +178,23 @@ export const Schedule = () => {
     };
   });
 
+  const handleAdd = () => {
+    WorkshiftControllerService.workshiftControllerCreate({ name: 'input the new workshift' })
+      .then((newData) => {
+        message.success('Create success!')
+        setData([...data, newData]);
+      })
+      .catch((error) => {
+        message.error('Create failed!');
+        setError(error)
+      });
+  };
+
   return (
     <>
-      <h1>Schedule</h1>
+      <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        <FileAddOutlined />Create new
+      </Button>
       <Form
         form={form}
         component={false}
@@ -233,11 +208,12 @@ export const Schedule = () => {
           bordered
           dataSource={data}
           columns={mergedColumns}
-          rowKey="id"
           rowClassName="editable-row"
           pagination={{
             onChange: cancel,
           }}
+          title={() => <h2 style={{ textAlign: 'center' }}>Workshift</h2>}
+          footer={() => <Typography.Text>Total records in the table: {data.length}</Typography.Text>}
         />
       </Form>
       {error}
