@@ -3,7 +3,7 @@ import { Form, Table, Switch, Input, Typography, Popconfirm, Checkbox, message }
 import { EditOutlined, SaveOutlined, StopOutlined, DeleteOutlined } from '@ant-design/icons';
 import { ApiError, ScheduleWithRelations, ScheduleControllerService } from '../services/index'
 import { weekday } from '../constants/weekDay';
-import { timeFormat } from '../utils/time.format';
+import { TimeFormat } from '../utils/TimeFormat';
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
@@ -144,7 +144,7 @@ export const Schedule = () => {
       editable: true,
       inputType: 'text',
       render: (_: any, record: ScheduleWithRelations) => (
-        <>{timeFormat(String(record.startTime))}</>
+        <>{TimeFormat(String(record.startTime))}</>
       ),
     },
     {
@@ -153,7 +153,7 @@ export const Schedule = () => {
       editable: true,
       inputType: 'text',
       render: (_: any, record: ScheduleWithRelations) => (
-        <>{timeFormat(String(record.endTime))}</>
+        <>{TimeFormat(String(record.endTime))}</>
       ),
     },
     {
