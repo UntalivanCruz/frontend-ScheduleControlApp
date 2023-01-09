@@ -4,6 +4,6 @@ import React from 'react'
 
 export const EmployeeTable = () => {
   return (
-    <div>Employee.table</div>
+    <div>Employeetable</div>
   )
 }

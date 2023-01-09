@@ -209,6 +209,7 @@ export const WorkshiftTable = () => {
           dataSource={data}
           columns={mergedColumns}
           rowClassName="editable-row"
+          rowKey="id"
           pagination={{
             onChange: cancel,
           }}

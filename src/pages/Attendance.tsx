@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
-import { Divider } from 'antd';
+import { Divider, Row, Col } from 'antd';
 import { SearchEmployee } from '../components';
 import { EmployeeWithRelations, AttendanceControllerService, NewAttendance, AttendanceWithRelations, ApiError } from '../services';
 import { DateNow, TruncateDate, DateFormat, DayNow, TimeNow } from '../utils/TimeFormat';
 import { getAttendance } from "../helpers/getAttendance";
+import { AttendanceCard } from "../components/AttendanceCard";
+import Item from "antd/es/list/Item";
 
 const date = DateFormat(TruncateDate(DateNow()))
 
@@ -17,8 +19,8 @@ export const Attendance = () => {
 
     if (Attendance) {
       const time = Attendance.startTime ? { endTime: TimeNow() } : { startTime: TimeNow() }
-      setData(data.map( (item)=>{
-        return item.id===Attendance.id ? {...item,...time} : item
+      setData(data.map((item) => {
+        return item.id === Attendance.id ? { ...item, ...time } : item
       }))
       await AttendanceControllerService
         .attendanceControllerUpdateById(String(Attendance.id), time)
@@ -29,15 +31,17 @@ export const Attendance = () => {
         startTime: TimeNow(),
         idEmployee: value.id,
       }
-      let newValue:AttendanceWithRelations = await AttendanceControllerService
+      let newValue: AttendanceWithRelations = await AttendanceControllerService
         .attendanceControllerCreate(insertAttendance)
-      newValue.Employee={...value}
+      newValue.Employee = { ...value }
       setData([newValue, ...data]);
     }
   }
 
   useEffect(() => {
-    AttendanceControllerService.attendanceControllerFind(`{"where":{"date": "${date}"},"include":[{"relation": "Employee"}]}`)
+    AttendanceControllerService.attendanceControllerFind(
+      `{"where":{"date": "${date}"},"include":[{"relation": "Employee"}],"order":["endTime DESC","startTime DESC"]}`
+    )
       .then((originData) => setData(originData))
       .catch((error) => setError(error));
   }, []);
@@ -45,14 +49,24 @@ export const Attendance = () => {
 
   return (
     <>
-      <h4>Welcome! Register your entry or exit using this form.</h4>
+      <Row>
+        <Col span={24}><h4>Welcome! Register your entry or exit using this form.</h4></Col>
+      </Row>
       <Divider />
-      <SearchEmployee newData={handleData} />
-      <ol>
+      <Row >
+        <Col span={24}>
+          <SearchEmployee newData={handleData} />
+        </Col>
+      </Row>
+      <br />
+      <Row>
         {data.map((item: any) => (
-          <li key={item.id}> {item.Employee.firstName} - {item.startTime} - {item.endTime}</li>
+          <Col span={6}>
+            <AttendanceCard key={item.id} {...item} />
+          </Col>
         ))}
-      </ol>
+
+      </Row>
       {error}
     </>
   )

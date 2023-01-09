@@ -210,6 +210,7 @@ export const DepartmentTable = () => {
             dataSource={data}
             columns={mergedColumns}
             rowClassName="editable-row"
+            rowKey="id"
             pagination={{
               onChange: cancel,
             }}
