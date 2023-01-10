@@ -47,9 +47,10 @@ export const Schedule = () => {
 
   const onUpdate = (id:string,item:NewSchedule)=>{
     ScheduleControllerService.scheduleControllerUpdateById(id, item)
-    .then(() => {
+    .then((newData:any) => {
+      console.log(newData)
       message.success('Update success!')
-      setData(data.map((row)=>row.id===id ? {...item,id} : row))
+      setData(data.map((row)=>row.id===id ? newData: row))
     })
     .catch((error) => {
       message.error('Update failed!');
