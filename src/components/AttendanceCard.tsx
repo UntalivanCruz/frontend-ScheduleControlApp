@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { ClockCircleOutlined } from '@ant-design/icons';
-import { Avatar, Card, Image } from 'antd';
+import { Card, Image } from 'antd';
 import { TimeFormat } from '../utils/TimeFormat';
 
 
@@ -17,11 +17,15 @@ export const AttendanceCard = ({ Employee, startTime, endTime }: any) => {
       <Card.Meta title={Employee.firstName} description={Employee.lastName} />
       <br />
       <table style={{ textAlign: 'center' }}>
-        <tr><td>StartTime</td><td></td><td>EndTime</td></tr>
+        <thead>
+        <tr><th>StartTime</th><th></th><th>EndTime</th></tr>
+        </thead>
+        <tbody>
         <tr>
-          <td><ClockCircleOutlined /> {startTime ? TimeFormat(startTime) : " --:-- --"}</td>
-          <td></td><td><ClockCircleOutlined /> {endTime ? TimeFormat(endTime) : " --:-- --"}</td>
+          <td><ClockCircleOutlined /> {startTime ? TimeFormat(startTime) : " --:--:--"}</td>
+          <td></td><td><ClockCircleOutlined /> {endTime ? TimeFormat(endTime) : " --:--:--"}</td>
         </tr>
+        </tbody>
       </table>
     </Card>
   )

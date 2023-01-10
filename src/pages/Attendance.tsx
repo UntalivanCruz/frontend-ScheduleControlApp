@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react"
 import { Divider, Row, Col } from 'antd';
-import { SearchEmployee } from '../components';
+import { SearchEmployee, AttendanceCard } from '../components';
 import { EmployeeWithRelations, AttendanceControllerService, NewAttendance, AttendanceWithRelations, ApiError } from '../services';
 import { DateNow, TruncateDate, DateFormat, DayNow, TimeNow } from '../utils/TimeFormat';
-import { getAttendance } from "../helpers/getAttendance";
-import { AttendanceCard } from "../components/AttendanceCard";
-import Item from "antd/es/list/Item";
+import { getAttendance } from "../helpers";
 
 const date = DateFormat(TruncateDate(DateNow()))
 
@@ -63,12 +61,11 @@ export const Attendance = () => {
         <Col span={24}><h4>Today's attendance record history</h4></Col>
       </Row>
       <Row>
-        {data.map((item: any) => (
-          <Col span={6}>
+      {data.map((item: any) => (
+          <Col key={item.id} span={6}>
             <AttendanceCard key={item.id} {...item} />
           </Col>
         ))}
-
       </Row>
       {error}
     </>
