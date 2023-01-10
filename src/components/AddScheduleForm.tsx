@@ -12,7 +12,7 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-export const ScheduleForm = ({ HandleNew, edit }: any) => {
+export const AddScheduleForm = ({ HandleNew, edit }: any) => {
   const [open, setOpen] = useState(false);
   const [dataWorkshift,setWorkshift] = useState<any>([]);
 

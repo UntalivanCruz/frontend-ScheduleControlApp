@@ -3,7 +3,9 @@ import { ColumnsType } from 'antd/es/table';
 import { ScheduleWithRelations } from '../services';
 import { weekday } from '../constants/weekDay';
 import { TimeFormat } from '../utils/TimeFormat';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined} from '@ant-design/icons';
+import { EditScheduleForm } from './EditScheduleForm';
+import { NewSchedule } from '../services/models/NewSchedule';
 
 export const ScheduleTable = ({ data, HandleDelete, edit }: any) => {
     const columns: ColumnsType<ScheduleWithRelations> = [
@@ -52,9 +54,7 @@ export const ScheduleTable = ({ data, HandleDelete, edit }: any) => {
             key: 'action',
             render: (_, record) => (
                 <>
-                    <Typography.Link onClick={() => edit(record)} style={{ marginRight: 8 }}>
-                        <EditOutlined /> Edit
-                    </Typography.Link>
+                    <EditScheduleForm HandleEdit={HandleEdit} data={record}/>
                     <Popconfirm title="Sure to delete?" onConfirm={() => HandleDelete(record.id)} >
                         <Typography.Link type="danger"><DeleteOutlined style={{ color: 'red' }} /> Delete</Typography.Link>
                     </Popconfirm>
@@ -63,7 +63,12 @@ export const ScheduleTable = ({ data, HandleDelete, edit }: any) => {
         },
     ];
 
+    const HandleEdit = (id:string,item:NewSchedule) =>{
+        edit(id,item)
+    }
+
     return (
+        <>
         <Table
             columns={columns}
             dataSource={data}
@@ -71,5 +76,7 @@ export const ScheduleTable = ({ data, HandleDelete, edit }: any) => {
             rowKey="id"
             title={() => <h2 style={{ textAlign: 'center' }}>Schedule</h2>}
             footer={() => <Typography.Text>Total records in the table: {data.length}</Typography.Text>} />
+            
+        </>
     )
 }

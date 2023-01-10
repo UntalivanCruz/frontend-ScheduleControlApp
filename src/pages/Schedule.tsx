@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import { useEffect, useState } from 'react';
-import { ScheduleForm, ScheduleTable } from '../components';
+import { AddScheduleForm, ScheduleTable } from '../components';
 import { ApiError, ScheduleControllerService, ScheduleWithRelations,NewSchedule } from '../services';
 
 export const Schedule = () => {
@@ -45,13 +45,23 @@ export const Schedule = () => {
     });
   }
 
-  const HandleEdit = (item:ScheduleWithRelations)=>console.log(item)
+  const onUpdate = (id:string,item:NewSchedule)=>{
+    ScheduleControllerService.scheduleControllerUpdateById(id, item)
+    .then(() => {
+      message.success('Update success!')
+      setData(data.map((row)=>row.id===id ? {...item,id} : row))
+    })
+    .catch((error) => {
+      message.error('Update failed!');
+      setError(error)
+    });
+  }
 
   return (  
     <>
-      <ScheduleForm HandleNew={HandleNew} />
+      <AddScheduleForm HandleNew={HandleNew} />
       <br />
-      <ScheduleTable data={data} HandleDelete={HandleDelete} edit={HandleEdit}/>
+      <ScheduleTable data={data} HandleDelete={HandleDelete} edit={onUpdate}/>
       {error}
     </>
   )
