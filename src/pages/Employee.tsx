@@ -1,79 +1,66 @@
-import { useEffect, useState } from 'react';
-import {Table, Switch, Space} from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import type { ColumnsType } from 'antd/es/table';
-import { ApiError,EmployeeWithRelations, EmployeeControllerService } from '../services/index'
-
-const columns: ColumnsType<EmployeeWithRelations> = [
-  {
-    title: 'Identification',
-    dataIndex: 'identification',
-    key: 'identification',
-  },
-  {
-    title: 'First Name',
-    dataIndex: 'firstName',
-    key: 'firstName',
-  },
-  {
-    title: 'Last Name',
-    dataIndex: 'lastName',
-    key: 'lastName',
-  },
-  {
-    title: 'Gender',
-    dataIndex: 'gender',
-    key: 'gender',
-  },
-  {
-    title: 'Nationality',
-    dataIndex: 'nationality',
-    key: 'nationality',
-  },
-  {
-    title: 'Positions',
-    dataIndex: 'EmployeePositions',
-    key: 'EmployeePositions',
-    render: (_, {EmployeePositions} ) => (
-      <>{ EmployeePositions?.name }</>
-    ),
-  },
-  {
-    title: 'Status',
-    dataIndex: 'status',
-    key: 'status',
-    render: (_, { status }) => (
-      <Switch checkedChildren="Enabled" unCheckedChildren="Disabled" disabled={true} defaultChecked checked={status} />
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <EditOutlined />
-        <DeleteOutlined />
-      </Space>
-    )
-  },
-];
+import { message } from "antd";
+import { useEffect, useState } from "react";
+import { AddEmployeeForm, EmployeeTable } from "../components"
+import { ApiError, EmployeeControllerService, EmployeeWithRelations,NewEmployee } from "../services";
 
 export const Employee = () => {
   const [data, setData] = useState<EmployeeWithRelations[]>([]);
-  const [error, setError] = useState<ApiError|null>();
+  const [error, setError] = useState<ApiError | null>();
 
-useEffect(() => {
-  EmployeeControllerService.employeeControllerFind(
-    '{"include":[{"relation":"EmployeePositions"}]}'
-  )
-    .then((originData) => setData(originData))
-    .catch((error) => setError(error));
-}, []);
+  useEffect(() => {
+    EmployeeControllerService.employeeControllerFind(
+      '{"include":[{"relation":"EmployeePositions"}]}'
+    )
+      .then((originData) => setData(originData))
+      .catch((error) => setError(error));
+  }, []);
+
+  const HandleDelete = (id: string) => {
+    EmployeeControllerService.employeeControllerUpdateById(id, { status: false })
+      .then(() => {
+        message.success('Delete success!');
+        setData(data.map(x => {
+          if (x.id === id) {
+            return { ...x, status: false }
+          } else {
+            return x
+          }
+        }))
+      })
+      .catch((error) => {
+        message.error('Delete failed!');
+        setError(error)
+      });
+  }
+
+  const HandleNew = (item:NewEmployee):void =>{
+    EmployeeControllerService.employeeControllerCreate(item)
+    .then((newData) => {
+      message.success('Create success!')
+      setData([...data, newData]);
+    })
+    .catch((error) => {
+      message.error('Create failed!');
+      setError(error)
+    });
+  }
+
+  const onUpdate = (id:string,item:NewEmployee)=>{
+    EmployeeControllerService.employeeControllerUpdateById(id, item)
+    .then((newData:any) => {
+      message.success('Update success!')
+      setData(data.map((row)=>row.id===id ? newData: row))
+    })
+    .catch((error) => {
+      message.error('Update failed!');
+      setError(error)
+    });
+  }
   return (
     <>
-    <h1>Employee</h1>
-    <Table columns={columns} dataSource={data} rowKey="id"/>
-    {error}
+      <AddEmployeeForm HandleNew={HandleNew}/>
+      <EmployeeTable data={data}  HandleDelete={HandleDelete}  edit={onUpdate}/>
+      {error}
     </>
   )
 }

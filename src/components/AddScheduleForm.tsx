@@ -12,7 +12,7 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-export const AddScheduleForm = ({ HandleNew, edit }: any) => {
+export const AddScheduleForm = ({ HandleNew}: any) => {
   const [open, setOpen] = useState(false);
   const [dataWorkshift,setWorkshift] = useState<any>([]);
 
@@ -91,7 +91,7 @@ useEffect(() => {
   };
 
   return (
-    <div>
+    <>
       <Button
         type="primary"
         onClick={() => {
@@ -108,7 +108,7 @@ useEffect(() => {
         }}
 
       />
-    </div>
+    </>
 
   );
 };

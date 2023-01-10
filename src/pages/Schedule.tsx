@@ -48,7 +48,6 @@ export const Schedule = () => {
   const onUpdate = (id:string,item:NewSchedule)=>{
     ScheduleControllerService.scheduleControllerUpdateById(id, item)
     .then((newData:any) => {
-      console.log(newData)
       message.success('Update success!')
       setData(data.map((row)=>row.id===id ? newData: row))
     })
