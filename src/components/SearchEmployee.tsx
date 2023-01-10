@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, message, Space } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { getEmployee } from '../helpers/getEmployee';
 
 export const SearchEmployee = ({ newData }: any) => {
