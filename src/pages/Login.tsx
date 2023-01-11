@@ -12,7 +12,7 @@ export const Login: React.FC = () => {
     .then((autorizathion)=>{
       message.success('Welcome!');
       OpenAPI.TOKEN=autorizathion.token
-      navigate('/', {
+      navigate('/attendance', {
         replace: true
       })
     })
