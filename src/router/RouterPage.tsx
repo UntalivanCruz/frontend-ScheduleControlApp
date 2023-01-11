@@ -9,8 +9,9 @@ import {
     CheckSquareOutlined,
     ScheduleOutlined,
     CalendarOutlined,
+    LogoutOutlined,
 } from '@ant-design/icons';
-import { Attendance, Department, Employee, Schedule, Workshift } from '../pages';
+import { Attendance, Department, Employee, Login, Schedule, Workshift } from '../pages';
 
 const { Header, Sider, Content } = Layout;
 
@@ -53,6 +54,11 @@ export const RouterPage: FC = () => {
                             icon: <CalendarOutlined />,
                             label: <Link to="/schedule">Schedule</Link>,
                           },
+                          {
+                            key: '6',
+                            icon: <LogoutOutlined />,
+                            label: "Logout",
+                          },
                     ]}
                 />
             </Sider>
@@ -78,6 +84,7 @@ export const RouterPage: FC = () => {
                         <Route path='/employee' element={<Employee />} />
                         <Route path='/schedule' element={<Schedule />} />
                         <Route path='/workshift' element={<Workshift />} />
+                        <Route path='/login' element={<Login />} />
                     </Routes>
                 </Content>
             </Layout>
