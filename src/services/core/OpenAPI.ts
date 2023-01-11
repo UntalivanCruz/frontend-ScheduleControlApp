@@ -18,7 +18,7 @@ export type OpenAPIConfig = {
     ENCODE_PATH?: (path: string) => string;
 };
 
-export const OpenAPI: OpenAPIConfig = {
+export let OpenAPI: OpenAPIConfig = {
     BASE: `${process.env.REACT_APP_API_URL}`,
     VERSION: '1.0.0',
     WITH_CREDENTIALS: false,

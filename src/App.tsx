@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-import { RouterPage } from './router/RouterPage';
 import { BrowserRouter } from 'react-router-dom';
-
+import { AppRouter } from './router/AppRouter';
 
 const App: FC = () => (
   <BrowserRouter>
-    <RouterPage />
+    <AppRouter />
   </BrowserRouter>
 );
 

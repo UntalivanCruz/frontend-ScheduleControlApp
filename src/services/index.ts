@@ -45,6 +45,8 @@ export type { NewEmployeePositionsInDepartment } from './models/NewEmployeePosit
 export type { NewEmployeePositionsInWorkshift } from './models/NewEmployeePositionsInWorkshift';
 export type { NewSchedule } from './models/NewSchedule';
 export type { NewScheduleInWorkshift } from './models/NewScheduleInWorkshift';
+export type { NewUser } from './models/NewUser';
+export type { NewUserRequest } from './models/NewUserRequest';
 export type { NewWorkshift } from './models/NewWorkshift';
 export type { Schedule } from './models/Schedule';
 export type { Schedule_Filter } from './models/Schedule_Filter';
@@ -53,6 +55,7 @@ export { Schedule_IncludeFilter_Items } from './models/Schedule_IncludeFilter_It
 export type { Schedule_ScopeFilter } from './models/Schedule_ScopeFilter';
 export type { SchedulePartial } from './models/SchedulePartial';
 export type { ScheduleWithRelations } from './models/ScheduleWithRelations';
+export type { User } from './models/User';
 export type { Workshift } from './models/Workshift';
 export type { Workshift_Filter } from './models/Workshift_Filter';
 export type { Workshift_Filter1 } from './models/Workshift_Filter1';
@@ -74,6 +77,7 @@ export { EmployeePositionsEmployeeControllerService } from './controllers/Employ
 export { EmployeePositionsWorkshiftControllerService } from './controllers/EmployeePositionsWorkshiftControllerService';
 export { ScheduleControllerService } from './controllers/ScheduleControllerService';
 export { ScheduleWorkshiftControllerService } from './controllers/ScheduleWorkshiftControllerService';
+export { UserControllerService } from './controllers/UserControllerService';
 export { WorkshiftControllerService } from './controllers/WorkshiftControllerService';
 export { WorkshiftEmployeePositionsControllerService } from './controllers/WorkshiftEmployeePositionsControllerService';
 export { WorkshiftScheduleControllerService } from './controllers/WorkshiftScheduleControllerService';

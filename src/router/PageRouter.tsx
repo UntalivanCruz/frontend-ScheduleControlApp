@@ -57,7 +57,7 @@ export const RouterPage: FC = () => {
                           {
                             key: '6',
                             icon: <LogoutOutlined />,
-                            label: "Logout",
+                            label: <Link to="/login">Logout</Link>,
                           },
                     ]}
                 />
