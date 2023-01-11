@@ -78,7 +78,6 @@ export const RouterPage: FC = () => {
                     }}
                 >
                     <Routes>
-                        <Route path='/' element={<Attendance />} />
                         <Route path='/attendance' element={<Attendance />} />
                         <Route path='/department' element={<Department />} />
                         <Route path='/employee' element={<Employee />} />
