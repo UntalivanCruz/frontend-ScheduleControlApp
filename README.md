@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+# Schedule Control Application
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Software Development](#Dev-Getting-Started-with-Create-React-App)
+
+## General info
+Schedule control application for employees of a company with a standard schedule.
+	
+## Technologies
+Project is created with:
+* React 18.2
+* Typescript 4.4
+* Ant Desing 5.1
+
+	
+## Setup
+To run this project, install it locally using yarn or npm:
+
+```
+$ git clone https://github.com/UntalivanCruz/frontend-ScheduleControlApp
+$ cd ./frontend-ScheduleControlApp
+$ yarn install
+$ yarn run dev
+```
+## Dev Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
