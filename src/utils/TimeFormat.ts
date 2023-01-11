@@ -9,6 +9,9 @@ export const TimeFormatSave = (time: any) =>
 export const TimeFormatRange = (time: string) =>
     dayjs().set('hour', Number(String(time).substring(0, 2))).set('minute', Number(String(time).substring(3, 5))).set('second', Number(String(time).substring(6, 8)))
 
+export const DateFormatRange = (date:string) =>
+    dayjs(date)
+
 export const DateFormat = (date: string) =>
     dayjs(date).toISOString()
 

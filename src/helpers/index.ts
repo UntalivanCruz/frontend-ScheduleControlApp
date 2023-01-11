@@ -1,3 +1,5 @@
 export * from './getAttendance'
 export * from './getEmployee'
 export * from './getWorkshift'
+export * from './getPositionEmployee'
+export * from './getNationality'
